@@ -1,10 +1,9 @@
 from ubuntu:14.04
 
 # development tools
-run apt-get update
-run apt-get -qy install git vim tmux wget make libpq-dev
+run apt-get update && apt-get -qy install git vim make curl build-essential libxml2-dev libxslt-dev
 
-run wget -O ruby-install-0.4.3.tar.gz https://github.com/postmodern/ruby-install/archive/v0.4.3.tar.gz
+run curl -L https://github.com/postmodern/ruby-install/archive/v0.4.3.tar.gz
 run tar -xzvf ruby-install-0.4.3.tar.gz
 workdir ruby-install-0.4.3/
 run make install
@@ -17,4 +16,6 @@ run make install
 run bash -c 'source /usr/local/share/chruby/chruby.sh'
 run cp /usr/local/share/chruby/chruby.sh /etc/profile.d/chruby.sh
 
-run bash -c 'source /usr/local/share/chruby/chruby.sh; chruby 2.1.2; gem install bundler'
+run bash -c 'source /usr/local/share/chruby/chruby.sh; chruby 2.1.2; gem install bundler berkshelf'
+
+RUN curl -L https://www.opscode.com/chef/install.sh | bash

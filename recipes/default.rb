@@ -12,7 +12,7 @@ end
 
 docker_image 'ubuntu' do
   source '/tmp/Dockerfile'
-  tag 'ruby-2.1.2'
+  tag 'ruby'
   cmd_timeout 900
   action :build_if_missing
 end
