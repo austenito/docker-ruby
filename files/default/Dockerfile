@@ -1,9 +1,9 @@
 from ubuntu:14.04
 
 # development tools
-run apt-get update && apt-get -qy install git vim make curl build-essential libxml2-dev libxslt-dev
+run apt-get update && apt-get -qy install wget git vim make curl build-essential libxml2-dev libxslt-dev
 
-run curl -L https://github.com/postmodern/ruby-install/archive/v0.4.3.tar.gz
+run wget -O ruby-install-0.4.3.tar.gz https://github.com/postmodern/ruby-install/archive/v0.4.3.tar.gz
 run tar -xzvf ruby-install-0.4.3.tar.gz
 workdir ruby-install-0.4.3/
 run make install
